@@ -9,10 +9,14 @@ from datetime import timedelta, datetime, date
 from .validators import Validate_studio
 
 GENRE_CHOICES = (
-('seleccionar', 'Seleccionar'),
+('select', 'Select'),
 ('accion', 'Accion'),
 ('comedia', 'Comedia'),
 ('terror', 'Terror'),
+('infancia', 'Infancia'),
+('romance', 'Romance'),
+('drama', 'Drama'),
+('anime', 'Anime')
 )
 # Create your models here.
 
@@ -36,9 +40,9 @@ class MovieModelManager(models.Manager):
 
 class Movie(models.Model):
     name    = models.CharField(max_length = 120)
-    year    = models.CharField(max_length = 120, default='Year', blank=True, null=True)
+    year    = models.CharField(max_length = 120, blank=True, null=True)
     studio  = models.CharField(max_length= 120, validators = [Validate_studio], null=True, blank=True)
-    genre   = models.CharField(max_length = 120, choices = GENRE_CHOICES, default= "seleccionar")
+    genre   = models.CharField(max_length = 120, choices = GENRE_CHOICES, default= "select")
     slug    = models.SlugField(null=True, blank=True)
     active  = models.BooleanField(default = True)
     created = models.DateField(auto_now = False, auto_now_add=False, default = timezone.now)
@@ -70,7 +74,7 @@ class Movie(models.Model):
             except:
                 difference = "No hay creacion"
 
-            if difference <= datetime.timedelta(minutes=10):
+            if difference <= datetime.timedelta(minutes=1):
                 print(difference)
                 return "Ahora"
             return "{time} ago".format(time=timestamp(created).split(",")[0])
