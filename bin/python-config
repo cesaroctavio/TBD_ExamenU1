@@ -1,4 +1,4 @@
-#!/home/cesar/Documentos/TBD_ExamenU1/bin/python
+#!/home/cesar/TBD_ExamenU1/bin/python
 
 import sys
 import getopt

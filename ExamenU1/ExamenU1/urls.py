@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from movie.views import home, sql_to_redis
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-]
+    url(r'^sql_to_redis/create', views.home, name='home'),
