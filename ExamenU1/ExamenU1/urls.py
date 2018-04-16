@@ -19,4 +19,6 @@ from movie.views import home, sql_to_redis
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^sql_to_redis/create', views.home, name='home'),
+    url(r'^$', home, name='home'),
+    url(r'^sql_to_redis/', sql_to_redis, name='sqlredis')
+] 

@@ -54,7 +54,7 @@ ROOT_URLCONF = 'ExamenU1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'ExamenU1/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'ExamenU1/template/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
